@@ -2,6 +2,7 @@
 import Image, { StaticImageData } from "next/image";
 
 import { tools, toolsTranslations } from "./tools";
+import { useTranslations } from "next-intl";
 
 interface ItemProps {
   title: string;
@@ -48,6 +49,7 @@ const Item = ({ title, description, image, link }: ItemProps) => (
 );
 
 export default function Tools() {
+  const t = useTranslations("Tool");
   const text = toolsTranslations;
   const categories = tools.reduce((acc, item) => {
     if (!acc.includes(item.category)) {
@@ -62,20 +64,20 @@ export default function Tools() {
         <div className="flex flex-col gap-8 animate-in">
           <div>
             <h1 className="animate-in text-3xl font-bold tracking-tight">
-              {text.title}
+              {t(text.title)}
             </h1>
             <p
               className="animate-in text-secondary"
               style={{ "--index": 1 } as React.CSSProperties}
             >
-              {text.subTitle}
+              {t(text.subTitle)}
             </p>
           </div>
           <p
             className="max-w-lg animate-in"
             style={{ "--index": 2 } as React.CSSProperties}
           >
-            {text.description}
+            {t(text.description)}
           </p>
         </div>
 

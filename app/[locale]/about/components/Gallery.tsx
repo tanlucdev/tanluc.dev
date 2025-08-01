@@ -18,7 +18,7 @@ import meMt from "public/gallery/me-mt.jpg";
 import Halo from "@/app/components/Halo";
 
 const ticketingFont = localFont({
-  src: "../../../public/ticketing.woff2",
+  src: "../../../../public/ticketing.woff2",
   display: "swap",
 });
 

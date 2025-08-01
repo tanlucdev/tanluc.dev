@@ -3,10 +3,13 @@ import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
 import { allProjects } from ".contentlayer/generated";
 
 import Link from "@/app/components/Link";
-import PostList from "@/app/blog/components/PostList";
-import ProjectList from "@/app/projects/components/ProjectList";
+import PostList from "@/app/[locale]/blog/components/PostList";
+import ProjectList from "@/app/[locale]/projects/components/ProjectList";
+import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
+  const t = useTranslations();
   const blogs = allBlogs
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     // 3 most recent
@@ -15,21 +18,18 @@ export default function Home() {
   const projects = allProjects.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
-  console.log('>> all projects', allProjects.length);
-  // console.log('> projects', projects);
   return (
     <div className="flex flex-col gap-16 md:gap-24">
       <div className="flex flex-col gap-8">
         <div className="space-y-4">
           <h1 className="animate-in text-3xl font-semibold tracking-tight text-primary">
-            hey, Tan Luc here!
+            {t("Intro")}
           </h1>
           <p
             className="max-w-lg animate-in text-secondary"
             style={{ "--index": 1 } as React.CSSProperties}
           >
-            I&apos;m a Frontend Developer in Viet Nam building for the web with a
-            design-first mindset.
+            {t("Short description")}
           </p>
         </div>
         <div
@@ -65,14 +65,14 @@ export default function Home() {
         className="flex animate-in flex-col gap-8"
         style={{ "--index": 4 } as React.CSSProperties}
       >
-        <p className="tracking-tight text-secondary">Pinned</p>
+        <p className="tracking-tight text-secondary">{t("Pinned")}</p>
         <ProjectList projects={projects} />
       </div>
       <div
         className="flex animate-in flex-col gap-8"
         style={{ "--index": 4 } as React.CSSProperties}
       >
-        <p className="tracking-tight text-secondary">Skills</p>
+        <p className="tracking-tight text-secondary">{t("Skills")}</p>
         <SkillsSection />
       </div>
 

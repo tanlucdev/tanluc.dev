@@ -1,0 +1,18 @@
+{
+  "Navigation": {
+    "Home": "Home",
+    "About": "About",
+    "Blog": "Blog",
+    "Tools": "Tools"
+  },
+  "Home": {
+    "hey, Tan Luc here!": "hey, Tan Luc here!",
+    "intro": "I'm a Frontend Developer in Viet Nam building for the web with a design-first mindset.",
+    "Projects": "Projects",
+    "Skills": "Skills"
+  },
+  "About": {
+    "About": "About",
+    "A glimpse into me": "A glimpse into me."
+  }
+}

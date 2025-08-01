@@ -1,0 +1,39 @@
+{
+  "Intro": "hey, Tan Luc here!",
+  "Pinned": "Pinned",
+  "Short description": "I'm a Frontend Developer in Viet Nam building for the web with a design-first mindset.",
+  "Skills": "Skills",
+  "No posts yet": "No posts yet. Check back soon!",
+  "Navigation": {
+    "Home": "Home",
+    "About": "About",
+    "Blog": "Blog",
+    "Tools": "Tools"
+  },
+  "NotFound": {
+    "message": "Uh oh! This page does not exist, maybe you clicked an old link or misspelled. Please try again…",
+    "returnHome": "Return home"
+  },
+  "Home": {
+    "hey, Tan Luc here!": "Chào, tôi là Tan Luc!",
+    "intro": "Tôi là một Nhà phát triển Frontend tại Việt Nam, xây dựng cho web với tư duy thiết kế đầu tiên.",
+    "Projects": "Dự án",
+    "Skills": "Kỹ năng"
+  },
+  "About": {
+    "About": "About",
+    "A glimpse into me": "A glimpse into me",
+    "intro": "I'm Tan Luc! Originally from Viet Nam, I'm now based in the vibrant place that is Ho Chi Minh City.",
+    "career": "My curiosity for computers began at age 14, which naturally led me to pursue a career in tech. I've been working as a frontend developer, specializing in full-stack development and design, for {years} years now!",
+    "hobbies": "When I'm not at my desk, you can find me at the gym, running or enjoying some coffee at a local shop!",
+    "work": "I specialize in Typescript, React, web development, UI/UX, and product design. But I am always learning new things. Here are some of the places I have worked."
+  },
+  "Connect": "Connect",
+  "About me": "About",
+  "Work": "Work",
+  "Tool": {
+    "Tools": "Tools",
+    "My toolbox": "My toolbox",
+    "These are the tools that I recommend": "These are the tools that I recommend"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "Navigation": {
+    "Home": "Trang chủ",
+    "About": "Giới thiệu",
+    "Blog": "Blog",
+    "Tools": "Công cụ"
+  },
+  "Home": {
+    "hey, Tan Luc here!": "Chào, tôi là Tan Luc!",
+    "intro": "Tôi là một Nhà phát triển Frontend tại Việt Nam, xây dựng cho web với tư duy thiết kế đầu tiên.",
+    "Projects": "Dự án",
+    "Skills": "Kỹ năng"
+  },
+  "About": {
+    "About": "Về tôi",
+    "A glimpse into me": "Một cái nhìn thoáng qua về tôi."
+  }
+}

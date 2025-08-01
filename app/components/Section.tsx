@@ -1,7 +1,8 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, use } from "react";
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
 
 type SectionProps = {
   heading: string;
@@ -14,6 +15,7 @@ export default function Section({
   headingAlignment,
   children,
 }: SectionProps) {
+  const t = useTranslations();
   return (
     <section
       className="col-reverse flex flex-col gap-2 md:flex-row md:gap-9"
@@ -25,7 +27,7 @@ export default function Section({
           headingAlignment === "right" && "md:text-right",
         )}
       >
-        {heading}
+        {t(heading)}
       </h2>
       {children}
     </section>

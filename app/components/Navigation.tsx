@@ -7,7 +7,10 @@ import { motion } from "framer-motion";
 import ThemeSwitcher from "@/app/components/ThemeSwitcher";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslations, useLocale } from "next-intl";
+import LanguageChange from "./LanguageChange";
 
 const links = [
   {
@@ -29,10 +32,14 @@ const links = [
 ] as const;
 
 export default function Navigation() {
-  const pathname = `/${usePathname().split("/")[1]}`;
+  const t = useTranslations('Navigation');
+  const pathname = usePathname();
   const theme = useTheme();
+  const locale = useLocale();
   const [mounted, setMounted] = useState(false);
+  const currentPath = pathname.replace(`/${locale}`, '') || '/';
   useEffect(() => setMounted(true), []);
+
   return (
     <header className="md:mt-6">
       <nav className="mx-auto flex max-w-[700px] items-center justify-between gap-3 px-4 py-3 md:px-6">
@@ -50,14 +57,14 @@ export default function Navigation() {
           {links.map((link) => (
             <Link
               key={link.path}
-              href={link.path}
-              className={`${pathname === link.path ? "text-primary" : "text-secondary"
+              href={`/${locale}${link.path === '/' ? '' : link.path}`}
+              className={`${currentPath === link.path ? "text-primary" : "text-secondary"
                 } relative rounded-lg px-3 py-1.5 text-sm transition-colors`}
               style={{
                 WebkitTapHighlightColor: "transparent",
               }}
             >
-              {pathname === link.path && (
+              {currentPath === link.path && (
                 <motion.span
                   layoutId="bubble"
                   className="absolute inset-0 -z-10 rounded-lg bg-tertiary"
@@ -65,14 +72,17 @@ export default function Navigation() {
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
-              {link.title}
+              {t(link.title)}
             </Link>
           ))}
         </div>
 
-        <div className="flex h-8 w-8 items-center justify-center">
+        <div className="flex h-8 w-14 items-center justify-center">
+          <LanguageChange />
           <ThemeSwitcher />
+
         </div>
+
       </nav>
     </header>
   );

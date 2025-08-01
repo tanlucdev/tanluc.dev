@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { allBlogs } from ".contentlayer/generated";
+import { useTranslations } from "next-intl";
 
 export const metadata: Metadata = {
   title: "Blog | Tan Luc",
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function Blog() {
+  const t = useTranslations();
   // Sort posts by date
   const posts = allBlogs.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
@@ -39,7 +41,7 @@ export default function Blog() {
         )}
       </div> */}
       <div className="animate-in flex flex-col gap-8">
-        <p className="text-secondary">No posts yet. Check back soon!</p>
+        <p className="text-secondary">{t("No posts yet")}</p>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import Image from "next/image";
 
-import Gallery from "@/app/about/components/Gallery";
-import Workplaces from "@/app/about/components/Workplaces";
+import Gallery from "@/app/[locale]/about/components/Gallery";
+import Workplaces from "@/app/[locale]/about/components/Workplaces";
 import ConnectLinks from "@/app/components/ConnectLinks";
 import Link from "@/app/components/Link";
 import Section from "@/app/components/Section";
@@ -13,6 +13,7 @@ import oneMedicLogo from "public/work/onemedic-logo.png";
 import dalat from "public/gallery/dalat.jpg";
 import mylove from "public/gallery/me-mt.jpg";
 import Greeting from "./components/Greeting";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "About | Tan Luc",
@@ -21,18 +22,18 @@ export const metadata: Metadata = {
 };
 
 export default async function About() {
-
+  const t = await getTranslations("About");
   return (
     <div className="flex flex-col gap-16 md:gap-24">
       <div>
         <h1 className="animate-in text-3xl font-bold tracking-tight text-primary">
-          About
+          {t("About")}
         </h1>
         <p
           className="animate-in text-secondary"
           style={{ "--index": 1 } as React.CSSProperties}
         >
-          A glimpse into me.
+          {t("A glimpse into me")}
         </p>
       </div>
       <div className="mb-8 md:hidden">
@@ -71,13 +72,22 @@ export default async function About() {
         className="flex animate-in flex-col gap-16 md:gap-24"
         style={{ "--index": 3 } as React.CSSProperties}
       >
-        <Section heading="About" headingAlignment="left">
+        <Section heading="About me" headingAlignment="left">
           <div className="flex flex-col gap-6">
-            <p>
+            {/* <p>
               <Greeting /> I&apos;m Tan Luc! Originally from Viet Nam,
               I&apos;m now based in the vibrant place that is Ho Chi Minh City.
+            </p> */}
+            <p>
+              <Greeting /> {t("intro")}
             </p>
             <p>
+              {t("career", { years: new Date().getFullYear() - 2023 })}
+            </p>
+            <p>
+              {t("hobbies")}
+            </p>
+            {/* <p>
               My curiosity for computers began at age 14, which naturally led me
               to pursue a career in tech. I&apos;ve been working as a frontend developer, specializing in full-stack development and design, for{" "}
               {new Date().getFullYear() - 2023} years now!
@@ -86,7 +96,7 @@ export default async function About() {
               When I&apos;m not at my desk, you can find me at the gym, running
               or enjoying some coffee at a local
               shop!
-            </p>
+            </p> */}
           </div>
         </Section>
         <Section heading="Connect" headingAlignment="left">
@@ -121,9 +131,7 @@ export default async function About() {
         <Section heading="Work" headingAlignment="left">
           <div className="flex w-full flex-col gap-8">
             <p>
-              I specialize in Typescript, React, web development,
-              UI/UX, and product design. But I am always learning new things.
-              Here are some of the places I have worked.
+              {t("work")}
             </p>
             <Workplaces items={workplaces} />
           </div>
