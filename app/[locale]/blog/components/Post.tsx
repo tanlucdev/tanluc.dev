@@ -15,14 +15,14 @@ type PostProps = {
 };
 
 export default function Post({ post, mousePosition }: PostProps) {
-  const { date, slug, title, image } = post;
+  const { date, slug, title, image, locale } = post;
   const imageHeight = 150;
   const imageWidth = 300;
   const imageOffset = 24;
 
   return (
     <li className="group py-3 transition-opacity first:pt-0 last:pb-0">
-      <Link href={`/blog/${slug}`}>
+      <Link href={`/${post.locale}/blog/${slug}`}>
         <div className="transition-opacity">
           {image && mousePosition && (
             <motion.div
@@ -44,7 +44,7 @@ export default function Post({ post, mousePosition }: PostProps) {
             </motion.div>
           )}
           <div className="flex items-center justify-between gap-6">
-            <Section heading={formatDate(date)}>
+            <Section heading={formatDate(date, locale)}>
               <span className="font-medium leading-tight text-pretty">{title}</span>
             </Section>
             <div className="relative flex aspect-square h-24 w-24 min-w-24 items-center justify-center rounded-md bg-secondary shadow-sm md:hidden">

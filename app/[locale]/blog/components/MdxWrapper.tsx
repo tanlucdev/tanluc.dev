@@ -1,6 +1,6 @@
 import { useMDXComponent } from "next-contentlayer/hooks";
 
-import CustomImage from "@/app/blog/components/Image";
+import CustomImage from "@/app/[locale]/blog/components/Image";
 import Link from "@/app/components/Link";
 import LinkPreview from "./mdx/LinkPreview";
 import SeriesCollapsible from "./mdx/SeriesCollapsible";

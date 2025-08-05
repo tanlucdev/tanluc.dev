@@ -6,10 +6,11 @@ import { allBlogs } from ".contentlayer/generated";
 
 import Avatar from "@/app/components/Avatar";
 import Tags from "@/app/components/Tags";
-import Mdx from "@/app/blog/components/MdxWrapper";
+import Mdx from "@/app/[locale]/blog/components/MdxWrapper";
 import Me from "@/public/avatar.png";
 
 import { formatDate } from "@/app/_utils/formatDate";
+import { getTranslations } from "next-intl/server";
 
 type Props = {
   params: {
@@ -21,7 +22,6 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const blog = allBlogs.find((blog) => blog.slug === params.slug);
-
   if (!blog) {
     notFound();
   }
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     : `https://tanluc.dev/api/og?title=${title}`;
 
   const metadata: Metadata = {
-    metadataBase: new URL("https://b-r.io"),
+    metadataBase: new URL("https://tanluc.dev"),
     title: `${title} | Tan Luc`,
     description,
     openGraph: {
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       type: "article",
       publishedTime,
-      url: `https://b-r.io/blog/${slug}`,
+      url: `https://tanluc.dev/blog/${slug}`,
       images: [{ url: ogImage, alt: title }],
     },
   };
@@ -56,14 +56,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Blog({ params }: { params: any }) {
-  const blog = allBlogs.find((blog) => blog.slug === params.slug);
+  const t = await getTranslations();
+  const locale = params.locale;
+  const blog = allBlogs
+    .filter((blog) => blog.locale === params.locale)
+    .find((blog) => blog.slug === params.slug);
 
   if (!blog) {
     notFound();
   }
 
   return (
-    <div className="flex flex-col gap-20">
+    <div className="animate-in flex flex-col gap-20">
       <article>
         <div className="flex flex-col gap-8">
           <div className="flex max-w-xl flex-col gap-4 text-pretty">
@@ -77,9 +81,9 @@ export default async function Blog({ params }: { params: any }) {
             <div className="leading-tight">
               <p>Tan Luc</p>
               <p className="text-secondary">
-                <time dateTime={blog.date}>{formatDate(blog.date)}</time>
+                <time dateTime={blog.date}>{formatDate(blog.date, locale)}</time>
                 {blog.updatedAt
-                  ? `(Updated ${formatDate(blog.updatedAt)})`
+                  ? `(Updated ${formatDate(blog.updatedAt, locale)})`
                   : ""}
               </p>
             </div>
@@ -109,7 +113,7 @@ export default async function Blog({ params }: { params: any }) {
           <h2>Tags</h2>
           <Tags tags={blog.tags} />
         </div>
-        <div className="flex flex-col gap-6">
+        {/* <div className="flex flex-col gap-6">
           <h2>Contact</h2>
           <p className="max-w-md text-pretty text-secondary">
             Questions or need more details? Ping me on{" "}
@@ -122,7 +126,7 @@ export default async function Blog({ params }: { params: any }) {
             </Link>
             .
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

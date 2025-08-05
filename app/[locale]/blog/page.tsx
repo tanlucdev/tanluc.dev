@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import { allBlogs } from ".contentlayer/generated";
 import { useTranslations } from "next-intl";
+import PostList from "./components/PostList";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Blog | Tan Luc",
@@ -15,34 +17,35 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Blog() {
-  const t = useTranslations();
-  // Sort posts by date
-  const posts = allBlogs.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+export default async function BlogPage({ params }: { params: { locale: string } }) {
+  const t = await getTranslations("Blog");
+  const locale = params.locale;
+  const blogs = allBlogs
+    .filter(project => project.locale === locale)
+    .sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    );
 
   return (
     <div className="flex flex-col gap-16 md:gap-24">
-      <div>
-        <h1 className="animate-in text-3xl font-bold tracking-tight">Blog</h1>
-        <p
-          className="animate-in text-secondary"
-          style={{ "--index": 1 } as React.CSSProperties}
-        >
-          Technical articles about software engineering, machine learning, and development practices.
-        </p>
+      <div className="flex flex-col gap-8">
+        <div>
+          <h1 className="animate-in text-3xl font-bold tracking-tight">Blog</h1>
+          <p
+            className="animate-in text-secondary"
+            style={{ "--index": 1 } as React.CSSProperties}
+          >
+            {blogs.length} {t("noPosts")}
+          </p>
+        </div>
       </div>
-      {/* <div className="animate-in flex flex-col gap-8">
-        {posts.length === 0 ? (
-          <p className="text-secondary">No posts yet. Check back soon!</p>
-        ) : (
-          posts.map((post) => <PostCard key={post.slug} post={post} />)
-        )}
-      </div> */}
-      <div className="animate-in flex flex-col gap-8">
-        <p className="text-secondary">{t("No posts yet")}</p>
+      <div
+        className="animate-in"
+        style={{ "--index": 2 } as React.CSSProperties}
+      >
+        <PostList posts={blogs} />
       </div>
+
     </div>
   );
 }

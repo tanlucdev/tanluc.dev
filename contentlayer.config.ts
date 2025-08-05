@@ -12,9 +12,18 @@ import rehypeSlug from "rehype-slug";
 const getSlug = (doc: any) => doc._raw.sourceFileName.replace(/\.mdx$/, "");
 
 const getLocale = (doc: any) => {
-  // Lấy tên thư mục cha của file .mdx, ví dụ: 'en' hoặc 'vi'
-  // doc._raw.sourceFilePath: 'blog/en/post1.mdx' => ['blog', 'en', 'post1.mdx']
-  return doc._raw.sourceFilePath.split(path.sep)[1];
+  const pathParts = doc._raw.sourceFilePath.split('/');
+
+  // For blog: blog/en/post.mdx or blog/vi/post.mdx
+  if (pathParts[1] === 'blog') {
+    return pathParts[0];
+  }
+  // For projects: en/project/post.mdx or vi/project/post.mdx
+  if (pathParts[1] === 'project') {
+    return pathParts[0];
+  }
+
+  return 'en';
 };
 
 const blogComputedFields: ComputedFields = {
@@ -33,22 +42,24 @@ const blogComputedFields: ComputedFields = {
         process.cwd(),
         "public",
         "blog",
+        // `${getSlug(doc)}/image.png`,
         `${getSlug(doc)}/image.png`,
+
       );
       return fs.existsSync(imagePath)
-        ? `/blog/${getSlug(doc)}/image.png`
+        ? `/${getLocale(doc)}/blog/${getSlug(doc)}/image.png`
         : null;
     },
   },
   og: {
     type: "string",
-    resolve: (doc) => `/blog/${getSlug(doc)}/image.png`,
+    resolve: (doc) => `/${getLocale(doc)}/blog/${getSlug(doc)}/image.png`,
   },
 };
 
 export const Blog = defineDocumentType(() => ({
   name: "Blog",
-  filePathPattern: `blog/**/*.mdx`,
+  filePathPattern: `**/blog/*.mdx`,
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
@@ -71,13 +82,13 @@ const projectComputedFields: ComputedFields = {
   },
   image: {
     type: "string",
-    resolve: (doc) => `/projects/${getSlug(doc)}/image.png`,
+    resolve: (doc) => `/${getLocale(doc)}/projects/${getSlug(doc)}/image.png`,
   },
 };
 
 export const Project = defineDocumentType(() => ({
   name: "Project",
-  filePathPattern: `project/**/*.mdx`,
+  filePathPattern: "**/project/*.mdx",
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },

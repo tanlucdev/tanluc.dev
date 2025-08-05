@@ -47,7 +47,9 @@ export default function PostList({ posts }: PostListProps) {
   const handleMouseMove = (e: React.MouseEvent<HTMLUListElement>) => {
     setMousePosition(getRelativeCoordinates(e, listRef.current));
   };
-
+  posts.forEach((post) => {
+    console.log("Post:", post.image);
+  });
   return (
     <ul
       ref={listRef}

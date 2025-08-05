@@ -1,0 +1,101 @@
+---
+title: "Tình huống Git thực tế khi đi làm duới góc nhìn của mình"
+date: "2025-03-25"
+tags: ["git", "dev", "workflow"]
+summary: "Tổng hợp những tình huống sử dụng Git thực tế trong quá trình thực tập, giúp người mới đi làm xử lý linh hoạt hơn trong môi trường làm việc."
+---
+
+import Tip from '@/app/components/Tip'
+
+## 🚀 Giới thiệu
+
+Trong kỳ thực tập tại một công ty công nghệ, mình đã có dịp sử dụng Git hàng ngày – không chỉ với các lệnh cơ bản mà còn gặp những tình huống thực tế đòi hỏi phải linh hoạt xử lý.
+
+Bài viết này chia sẻ lại một số tình huống cụ thể mình từng trải qua, cách mình xử lý và một vài tips để làm việc với Git một cách chuyên nghiệp hơn.
+
+<Image
+  src="/vi/blog/using-git/image.png"
+  alt="Git Workflow Diagram"
+  width={800}
+  height={400}
+/>
+---
+
+## 🧩 Tình huống 1: Đang làm task thì bị gọi sang fix bug gấp
+
+### 📝 Mô tả
+
+Bạn đang code dở trên nhánh `feature/task-A`, thì leader nhắn:  
+ “Bug gấp ở tính năng cũ, fix liền nhé.”
+
+### ✅ Cách xử lý
+
+```bash
+# 1. Lưu tạm thay đổi
+git stash
+
+# 2. Chuyển sang nhánh khác để fix bug
+git checkout feature/task-B
+
+# 3. Fix bug, commit, push như bình thường
+
+# 4. Quay lại task cũ
+git checkout feature/task-A
+
+# 5. Lấy lại code dở dang
+git stash pop
+```
+
+<Tip>Luôn kiểm tra sau khi git stash pop, vì có thể xuất hiện conflict cần xử lý.</Tip>
+
+---
+
+## 🧩 Tình huống 2: Chưa hoàn thành task nhưng muốn lưu lại tiến độ
+
+### 📝 Mô tả
+
+Bạn đã code được một phần task, nhưng chưa xong hoàn toàn. Tuy nhiên, bạn vẫn muốn commit để lưu lại tiến độ làm việc.
+
+### ✅ Cách xử lý
+
+Tránh commit tạm kiểu:
+
+```bash
+git commit -m "abcxyz"
+```
+
+Thay vào đó, hãy dùng dạng commit WIP (Work In Progress):
+
+```bash
+git commit -m "WIP: validate dữ liệu form login"
+```
+
+<Tip>WIP giúp thể hiện rằng commit này chưa hoàn chỉnh, nhưng rất hữu ích để chia sẻ tiến độ, nhất là khi cần push lên cho team review hoặc hỗ trợ. Tránh merge WIP vào `main` hoặc `develop` nếu chưa review xong.</Tip>
+
+---
+
+## 🧩 Tình huống 3: Cập nhật code mới nhất từ develop
+
+### 📝 Mô tả
+
+Khi đang làm việc trên một nhánh tính năng (feature/task-A), bạn nên thường xuyên cập nhật code mới từ develop để hạn chế xung đột sau này.
+
+### ✅ Cách xử lý
+
+```bash
+# 1. Chuyển sang nhánh develop
+git checkout develop
+
+# 2. Lấy code mới nhất từ remote
+git pull origin develop
+
+# 3. Quay lại nhánh đang làm
+git checkout feature/task-A
+
+# 4. Merge code mới từ develop
+git merge develop
+```
+
+Nếu có conflict, xử lý ngay và test lại trước khi tiếp tục làm task.
+
+<Tip>Nên cập nhật code thường xuyên — tốt nhất là mỗi ngày nếu bạn đang làm trong team nhiều người.</Tip>

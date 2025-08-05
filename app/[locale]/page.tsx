@@ -8,16 +8,19 @@ import ProjectList from "@/app/[locale]/projects/components/ProjectList";
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 
-export default function Home() {
+export default function Home({ params }: { params: { locale: string } }) {
+  const locale = params.locale;
   const t = useTranslations();
   const blogs = allBlogs
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     // 3 most recent
     .filter((_, i) => i < 3);
 
-  const projects = allProjects.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
+  const projects = allProjects
+    .filter(project => project.locale === locale)
+    .sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    );
   return (
     <div className="flex flex-col gap-16 md:gap-24">
       <div className="flex flex-col gap-8">
@@ -36,6 +39,13 @@ export default function Home() {
           className="flex animate-in gap-3 text-sm"
           style={{ "--index": 2 } as React.CSSProperties}
         >
+          <Link
+            href="https://drive.google.com/file/d/1Vv7eQM2k9J13oit0JKh4kxyoqGWqP_c6/view?usp=sharing"
+            className="flex w-fit items-center rounded-full bg-secondary px-3 py-1 no-underline hover:bg-tertiary"
+          >
+            Resume
+            <ArrowUpRightIcon className="h-4 w-4 text-tertiary" />
+          </Link>
           <Link
             href="https://github.com/tanlucdev"
             className="flex w-fit items-center rounded-full bg-secondary px-3 py-1 no-underline hover:bg-tertiary"

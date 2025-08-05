@@ -1,11 +1,21 @@
 import { format } from "date-fns";
 
-export const formatDate = (date: string) =>
-  new Date(date).toLocaleString("en-US", {
-    month: "short",
-    day: "2-digit",
-    year: "numeric",
-  });
+export const formatDate = (date: string, locale: string) =>
+(
+  locale === "en" ?
+    new Date(date).toLocaleString("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+    })
+    :
+    new Date(date).toLocaleString("vi-VN", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    })
+
+)
 
 export function formatRelativeTime(date: Date) {
   const now = new Date();

@@ -1,0 +1,119 @@
+---
+title: "Real-world Git Scenarios from My Day-to-Day Work"
+date: "2025-03-25"
+tags: ["git", "dev", "workflow"]
+summary: "A summary of real-world Git scenarios I encountered during my internship, along with practical solutions and helpful tips for beginners."
+---
+
+import Tip from '@/app/components/Tip'
+
+## 🚀 Introduction
+
+During my internship at a tech company, I used Git every day — not just for basic commands, but also for real-world situations that required flexible handling.
+
+This post shares a few specific scenarios I encountered, how I dealt with them, and some handy tips to work with Git more effectively and professionally.
+
+<Image
+  src="/en/blog/using-git/image.png"
+  alt="Git Workflow Diagram"
+  width={800}
+  height={400}
+/>
+
+---
+
+## 🧩 Scenario 1: In the middle of a task, got pulled to fix a hot bug
+
+### 📝 Description
+
+You're halfway through coding on the branch `feature/task-A`, when your team lead messages:
+
+> "There's a critical bug in an old feature. Please fix it ASAP."
+
+### ✅ How to handle it
+
+```bash
+# 1. Temporarily save your current changes
+git stash
+
+# 2. Switch to another branch to fix the bug
+git checkout feature/task-B
+
+# 3. Fix the bug, commit, and push as usual
+
+# 4. Switch back to your original task
+git checkout feature/task-A
+
+# 5. Retrieve your stashed work
+git stash pop
+```
+
+<Tip>
+Always double-check before using `stash pop`, as it might lead to conflicts if the same files were modified in both branches.
+</Tip>
+
+---
+
+## 🧩 Scenario 2: Too many small commits in a branch
+
+### 📝 Description
+
+You made several small commits while working on a task, like:
+
+```bash
+feat: build UI
+fix: padding issue
+refactor: split component
+```
+
+Now you want to clean things up before pushing.
+
+### ✅ How to handle it
+
+```bash
+# Combine the last 3 commits into one
+git rebase -i HEAD~3
+```
+
+Mark the secondary commits as `squash` or `s`, and write a clean commit message.
+
+<Tip>
+Always squash your commits **before** opening a pull request to keep your Git history tidy!
+</Tip>
+
+---
+
+## 🧩 Scenario 3: Can't push code — asked to pull first
+
+### 📝 Description
+
+You commit changes and try to push, but get this error:
+
+```bash
+error: failed to push some refs
+hint: Updates were rejected because the remote contains work that you do
+```
+
+### ✅ How to handle it
+
+This means the remote branch has new updates that you haven't pulled yet.
+
+```bash
+# Pull latest changes from remote
+git pull --rebase
+
+# Then push your changes
+git push
+```
+
+<Tip>
+Use `--rebase` to avoid unnecessary merge commits and keep history clean.
+</Tip>
+
+---
+
+## ✨ Wrap-up
+
+Git isn’t just about running `add`, `commit`, and `push`. It’s a powerful tool for collaborating in teams. When you run into real-world issues, you'll pick up practical skills and understand Git on a deeper level.
+
+Hope these examples help you navigate Git more confidently at work! 💪

@@ -1,6 +1,6 @@
 {
-  "Intro": "Xin chào, mình là Tấn Lực!",
-  "Short description": "Mình là một Nhà phát triển Frontend tại Việt Nam, xây dựng cho web với tư duy thiết kế đầu tiên.",
+  "Intro": "xin chào, mình là Tấn Lực!",
+  "Short description": "Mình là một lập trình viên Phờ-rôn-en tại Việt Nam, xây dựng cho web với tư duy thiết kế đầu tiên.",
   "Pinned": "Ghim",
   "Skills": "Kỹ năng",
   "No posts yet": "Chưa có bài viết nào. Hãy quay lại sau nhé!",
@@ -15,25 +15,41 @@
     "returnHome": "Về trang chủ"
   },
   "Home": {
-    "hey, Tan Luc here!": "Chào, tôi là Tan Luc!",
-    "intro": "Tôi là một Nhà phát triển Frontend tại Việt Nam, xây dựng cho web với tư duy thiết kế đầu tiên.",
+    "hey, Tan Luc here!": "Chào bạn, mình là Tấn Lực!",
+    "intro": "Mình là một lập trình viên Phờ-rôn-en tại Việt Nam, xây dựng cho web với tư duy thiết kế đầu tiên.",
     "Projects": "Dự án",
     "Skills": "Kỹ năng"
   },
   "About": {
     "About": "Giới thiệu",
-    "A glimpse into me": "Cái nhìn thoáng qua về tôi",
-    "intro": "Tôi là Tấn Lực! Quê gốc Việt Nam, hiện tại tôi đang sống ở thành phố sôi động Hồ Chí Minh.",
-    "career": "Niềm đam mê với máy tính của tôi bắt đầu từ năm 14 tuổi, điều này đã dẫn tôi đến sự nghiệp công nghệ. Tôi đã làm việc như một frontend developer, chuyên về full-stack development và thiết kế, được {years} năm rồi!",
-    "hobbies": "Khi không ngồi bàn làm việc, bạn có thể tìm thấy tôi ở phòng gym, chạy bộ hoặc thưởng thức cà phê tại một quán địa phương!",
-    "work": "Tôi chuyên về Typescript, React, phát triển web, UI/UX và thiết kế sản phẩm. Nhưng tôi luôn học hỏi những điều mới. Dưới đây là một số nơi tôi đã làm việc."
+    "A glimpse into me": "Cái nhìn thoáng qua về mình",
+    "intro": "Mình là Tấn Lực! Quê gốc Việt Nam, hiện tại mình đang sống ở thành phố sôi động Hồ Chí Minh.",
+    "career": "Niềm đam mê với máy tính của mình bắt đầu từ năm 14 tuổi, điều này đã dẫn mình đến sự nghiệp công nghệ. Mình đã làm việc như một phờ-rôn-en, chuyên về full-stack development và thiết kế, được {years} năm rồi!",
+    "hobbies": "Khi không ngồi bàn làm việc, bạn có thể tìm thấy mình ở phòng gym, chạy bộ hoặc thưởng thức cà phê tại một quán địa phương! Mình là một coffeeholic chính hiệu, mình có thể đi cà phê mỗi ngày.",
+    "work": "Mình chuyên về Typescript, React, phát triển web, UI/UX và thiết kế sản phẩm. Nhưng mình luôn học hỏi những điều mới. Dưới đây là một số nơi mình đã làm việc."
   },
   "Connect": "Liên hệ",
-  "About me": "Về tôi",
+  "About me": "Về mình",
   "Work": "Công việc",
   "Tool": {
     "Tools": "Công cụ",
-    "My toolbox": "Bộ công cụ của tôi",
-    "These are the tools that I recommend": "Đây là những công cụ mà tôi khuyên dùng"
+    "My toolbox": "Bộ công cụ của mình",
+    "These are the tools that I recommend": "Đây là những công cụ mà mình khuyên dùng"
+  },
+  "Project": {
+    "Visit project": "Xem dự án"
+  },
+  "notFound": {
+    "message": "Ôi không! Trang này không tồn tại, có thể bạn đã nhấp vào một liên kết cũ hoặc gõ sai. Vui lòng thử lại…",
+    "returnHome": "Về trang chủ"
+  },
+  "Blog": {
+    "noPosts": "bài viết cho đến nay. Hãy theo dõi mình để biết thêm!"
+  },
+  "Greeting": {
+    "Good morning": "Chào buổi sáng,",
+    "Good afternoon": "Chào buổi chiều,",
+    "Good evening": "Chào buổi tối,",
+    "Hello, night owl!": "Chào, cú đêm nha!"
   }
 }

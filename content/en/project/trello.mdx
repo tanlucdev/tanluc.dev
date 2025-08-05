@@ -1,0 +1,74 @@
+---
+title: "Trello Clone Project"
+date: "2023"
+summary: "Task management web app inspired by Trello, with real-time collaboration and drag-and-drop boards."
+url: "https://github.com/tanlucdev/trello-web"
+tags: ["ReactJS", "MongoDB", "NodeJS", "Material-UI", "MERN", "dnd-kit"]
+---
+
+### About the Project
+A Trello-inspired task management application with real-time collaboration and an intuitive drag-and-drop interface. Built from scratch to replicate Trello’s core experience, this project helped strengthen both frontend and backend skills.
+
+<Image
+  src="/en/projects/trello/image.png"
+  alt="Trello Clone Main Interface"
+  width={2267}
+  height={1280}
+  caption="Main board interface replicating Trello layout with draggable task cards."
+  size="lg"
+  contained
+/>
+
+### Features
+
+- 🧩 Drag-and-drop task reordering via `@dnd-kit`
+- 🔐 Authentication system with protected routes
+- ⚡ Real-time UI updates and smooth state transitions
+- 🌗 Dark and light mode toggle support
+- 🎨 Responsive design using Material UI
+
+<Image
+  src="/en/projects/trello/dark theme.png"
+  alt="Dark Theme"
+  width={2267}
+  height={1280}
+  caption="Dark mode interface for better focus and low-light environments."
+  size="lg"
+  contained
+/>
+
+<Image
+  src="/en/projects/trello/light theme.png"
+  alt="Light Theme"
+  width={2267}
+  height={1280}
+  caption="Light mode interface for a clean and bright user experience."
+  size="lg"
+  contained
+/>
+
+### Tech Stack
+
+- **Frontend:** ReactJS, Material UI, dnd-kit
+- **Backend:** NodeJS, ExpressJS
+- **Database:** MongoDB
+- **Architecture:** MERN Stack (MongoDB, Express, React, Node)
+
+### Technical Implementation
+
+#### Drag and Drop Logic
+
+The project uses `@dnd-kit` to implement Trello-style drag-and-drop functionality for moving task cards between columns.
+
+```ts
+const handleDragEnd = (event) => {
+  const { active, over } = event;
+  if (!over || active.id === over.id) return;
+
+  const oldColumn = findColumnByCardId(active.id);
+  const newColumn = findColumnByCardId(over.id);
+
+  if (oldColumn && newColumn) {
+    moveCardBetweenColumns(active.id, oldColumn, newColumn);
+  }
+};

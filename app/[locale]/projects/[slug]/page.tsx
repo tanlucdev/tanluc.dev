@@ -3,10 +3,15 @@ import { notFound } from "next/navigation";
 
 import Avatar from "@/app/components/Avatar";
 import Link from "@/app/components/Link";
-import Mdx from "@/app/blog/components/MdxWrapper";
+import Mdx from "@/app/[locale]/blog/components/MdxWrapper";
+import { useLocale } from "next-intl";
+import { useTranslations } from "use-intl";
+import { getTranslations } from "next-intl/server";
 
 export default function Project({ params }: { params: any }) {
-  const project = allProjects.find((project) => project.slug === params.slug);
+  const locale = useLocale();
+  // const t = await getTranslations("Project");
+  const project = allProjects.find((project) => project.slug === params.slug && project.locale === locale);
 
   if (!project) {
     notFound();
@@ -32,7 +37,8 @@ export default function Project({ params }: { params: any }) {
                 {" · "}
 
                 <Link underline href={project.url || ""}>
-                  Visit Project
+                  {/* {t("Visit project")} */}
+                  Visit project
                 </Link>
               </p>
             </div>

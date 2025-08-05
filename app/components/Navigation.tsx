@@ -11,6 +11,8 @@ import { useState, useEffect, use } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslations, useLocale } from "next-intl";
 import LanguageChange from "./LanguageChange";
+import darkLogo from "@/public/logo/tanlucdev-dark.png";
+import lightLogo from "@/public/logo/tanlucdev-light.png";
 
 const links = [
   {
@@ -46,8 +48,8 @@ export default function Navigation() {
         {mounted && (
           <Link href="/" className="hidden shrink-0 text-primary md:block">
             {theme.theme === 'dark'
-              ? <Image height={36} width={36} src={'/logo/tanlucdev-dark.png'} alt="Logo dark" />
-              : <Image height={36} width={36} src={'/logo/tanlucdev-light.png'} alt="Logo light" />
+              ? <Image height={36} width={36} src={darkLogo} alt="Logo dark" />
+              : <Image height={36} width={36} src={lightLogo} alt="Logo light" />
             }
 
           </Link>

@@ -10,7 +10,9 @@ import Section from "@/app/components/Section";
 import newAiLogo from "public/work/newai-logo.webp";
 import oneMedicLogo from "public/work/onemedic-logo.png";
 
+import saigon from "public/gallery/saigon.webp";
 import dalat from "public/gallery/dalat.jpg";
+import forest from "public/gallery/forest.jpg";
 import mylove from "public/gallery/me-mt.jpg";
 import Greeting from "./components/Greeting";
 import { getTranslations } from "next-intl/server";
@@ -42,8 +44,8 @@ export default async function About() {
           style={{ "--index": 1 } as React.CSSProperties}
         >
           <Image
-            src={mylove}
-            alt={"me and my love"}
+            src={saigon}
+            alt={"Saigon.jpg"}
             width={324}
             height={139}
             className="pointer-events-none relative inset-0 h-52 w-60 -rotate-6 rounded-xl bg-neutral-400 object-cover object-right shadow-md"
@@ -58,8 +60,8 @@ export default async function About() {
           <Image
             src={dalat}
             alt={"Da Lat, Vietnam"}
-            width={220}
-            height={260}
+            width={160}
+            height={180}
             className="pointer-events-none absolute inset-0 -top-44 left-[40%] w-48 rotate-6 rounded-xl bg-neutral-400 object-cover shadow-md md:left-[60%] md:w-56"
             priority
           />
@@ -69,7 +71,7 @@ export default async function About() {
         <Gallery />
       </div>
       <div
-        className="flex animate-in flex-col gap-16 md:gap-24"
+        className="flex animate-in flex-col gap-16 md:gap-24 mt-10 md:mt-0"
         style={{ "--index": 3 } as React.CSSProperties}
       >
         <Section heading="About me" headingAlignment="left">

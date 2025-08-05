@@ -5,9 +5,6 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverActions: true,
-  },
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -23,6 +20,8 @@ const nextConfig = {
       "store.storeimages.cdn-apple.com",
       "www.apple.com",
     ],
+    // This ensures image paths are not affected by localization
+    path: '/_next/image',
   },
 };
 
