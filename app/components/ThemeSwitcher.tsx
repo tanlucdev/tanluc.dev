@@ -9,8 +9,10 @@ import * as Select from "@radix-ui/react-select";
 
 import { MoonIcon, CheckIcon } from "@heroicons/react/20/solid";
 import { SunIcon } from "@heroicons/react/24/outline";
+import { useTranslations } from "next-intl";
 
 export default function ThemeSwitcher() {
+  const t = useTranslations('Theme')
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme, resolvedTheme, themes } = useTheme();
   const filteredThemes = themes.filter((t) => t !== "system");
@@ -21,7 +23,9 @@ export default function ThemeSwitcher() {
   if (!mounted) {
     return null;
   }
-
+  filteredThemes.forEach((themeOption) => {
+    console.log(`Available theme: ${themeOption}`);
+  });
   return (
     <Select.Root value={theme} onValueChange={setTheme}>
       <Select.Trigger
@@ -69,7 +73,7 @@ export default function ThemeSwitcher() {
                     )}
                   >
                     <Select.ItemText className="truncate">
-                      {themeOption === "system" ? "System" : themeOption}
+                      {themeOption === "system" ? "System" : t(themeOption)}
                     </Select.ItemText>
                     <Select.ItemIndicator>
                       <CheckIcon

@@ -16,7 +16,7 @@
   },
   "Home": {
     "hey, Tan Luc here!": "Chào, mình là Tấn Lực!",
-    "intro": "Mình là một Lập trình viên Frontend tại Việt Nam, xây dựng cho web với tư duy thiết kế đầu tiên.",
+    "intro": "Mình là một Lập trình viên Frontend tại Việt Nam, xây dựng web với tư duy thiết kế đầu tiên.",
     "Projects": "Dự án",
     "Skills": "Kỹ năng"
   },
@@ -26,7 +26,9 @@
     "intro": "I'm Tan Luc! Originally from Viet Nam, I'm now based in the vibrant place that is Ho Chi Minh City.",
     "career": "My curiosity for computers began at age 14, which naturally led me to pursue a career in tech. I've been working as a frontend developer, specializing in full-stack development and design, for {years} years now!",
     "hobbies": "When I'm not at my desk, you can find me at the gym, running or enjoying some coffee at a local shop! I'm a coffeeholic, I can go for coffee every day.",
-    "work": "I specialize in Typescript, React, web development, UI/UX, and product design. But I am always learning new things. Here are some of the places I have worked."
+    "work": "I specialize in Typescript, React, web development, UI/UX, and product design. But I am always learning new things. Here are some of the places I have worked.",
+    "title": "About me | Tan Luc",
+    "aboutDescription": "Developer based in Sai Gon, Viet Nam"
   },
   "Connect": "Connect",
   "About me": "About",
@@ -34,7 +36,8 @@
   "Tool": {
     "Tools": "Tools",
     "My toolbox": "My toolbox",
-    "These are the tools that I recommend": "These are the tools that I recommend"
+    "These are the tools that I recommend": "These are the tools that I recommend",
+    "title": "Tools | Tan Luc"
   },
   "Project": {
     "Visit project": "Visit project"
@@ -44,12 +47,19 @@
     "returnHome": "Return home"
   },
   "Blog": {
-    "noPosts": "posts so far. Stay tuned for more!"
+    "noPosts": "posts so far. Stay tuned for more!",
+    "title": "Blog | Tan Luc"
   },
   "Greeting": {
     "Good morning": "Good morning,",
     "Good afternoon": "Good afternoon,",
     "Good evening": "Good evening,",
     "Hello, night owl!": "Hello, night owl!"
-  }
+  },
+  "Theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "Tan Luc": "Tan Luc"
 }

@@ -17,11 +17,19 @@ import mylove from "public/gallery/me-mt.jpg";
 import Greeting from "./components/Greeting";
 import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "About | Tan Luc",
-  description:
-    "Devloper base in Sai Gon, Viet Nam",
-};
+// export const metadata: Metadata = {
+//   title: "About | Tan Luc",
+//   description:
+//     "Devloper base in Sai Gon, Viet Nam",
+// };
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("About");
+  return {
+    title: t("title"),
+    description: t("aboutDescription"), // Add this key to your translation files
+  };
+}
 
 export default async function About() {
   const t = await getTranslations("About");

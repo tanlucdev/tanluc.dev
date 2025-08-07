@@ -1,8 +1,11 @@
-"use client";
 import Image, { StaticImageData } from "next/image";
 
 import { tools, toolsTranslations } from "./tools";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { Metadata } from "next";
+
+
 
 interface ItemProps {
   title: string;
@@ -10,6 +13,13 @@ interface ItemProps {
   image: string | StaticImageData;
   link: string;
   toolsTranslations: {};
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("Tool");
+  return {
+    title: t("title"),
+  };
 }
 
 const Item = ({ title, description, image, link }: ItemProps) => (

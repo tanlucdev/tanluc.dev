@@ -7,6 +7,14 @@ import PostList from "@/app/[locale]/blog/components/PostList";
 import ProjectList from "@/app/[locale]/projects/components/ProjectList";
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return {
+    title: t("Tan Luc"),
+  };
+}
 
 export default function Home({ params }: { params: { locale: string } }) {
   const locale = params.locale;
@@ -60,14 +68,6 @@ export default function Home({ params }: { params: { locale: string } }) {
             LinkedIn
             <ArrowUpRightIcon className="h-4 w-4 text-tertiary" />
           </Link>
-          <Link
-            href="https://instagram.com/tanlucdev"
-            className="flex w-fit items-center rounded-full bg-secondary px-3 py-1 no-underline hover:bg-tertiary"
-          >
-            Instagram
-            <ArrowUpRightIcon className="h-4 w-4 text-tertiary" />
-          </Link>
-
         </div>
       </div>
 
@@ -165,7 +165,7 @@ function SkillsSection() {
               {skillList.map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-full bg-primary px-3 py-1 text-xs text-secondary"
+                  className="rounded-full bg-tertiary px-3 py-1 text-xs text-secondary"
                 >
                   {skill}
                 </span>

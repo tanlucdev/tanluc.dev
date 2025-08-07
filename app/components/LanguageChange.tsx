@@ -12,8 +12,8 @@ export default function LanguageChange() {
   const pathname = usePathname();
 
   const languages = [
-    { code: "en", name: "English", countryCode: "GB" },
-    { code: "vi", name: "Tiếng Việt", countryCode: "VN" },
+    { code: "en", name: "English", countryCode: "US" },
+    { code: "vi", name: "Vietnamese", countryCode: "VN" },
   ];
 
   function onValueChange(next: string) {
@@ -39,7 +39,7 @@ export default function LanguageChange() {
       >
         <Select.Value>
           {locale === "en" ? (
-            <ReactCountryFlag countryCode="GB" style={{ width: '1.2rem', height: '1.2rem' }} svg className=" cursor-pointer text-secondary transition-colors hover:text-primary" />
+            <ReactCountryFlag countryCode="US" style={{ width: '1.2rem', height: '1.2rem' }} svg className=" cursor-pointer text-secondary transition-colors hover:text-primary" />
           ) : (
             <ReactCountryFlag countryCode="VN" style={{ width: '1.2rem', height: '1.2rem' }} svg className=" cursor-pointer text-secondary transition-colors hover:text-primary" />
           )}

@@ -4,18 +4,25 @@ import { useTranslations } from "next-intl";
 import PostList from "./components/PostList";
 import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Blog | Tan Luc",
-  description:
-    "I write about programming, design, and occasionally life updates!",
-  openGraph: {
-    title: "Blog | Tan Luc",
-    description:
-      "I write about programming, design, and occasionally life updates!",
-    type: "website",
-    url: "https://tanluc.dev/blog/Blog",
-  },
-};
+// export const metadata: Metadata = {
+//   title: "Blog | Tan Luc",
+//   description:
+//     "I write about programming, design, and occasionally life updates!",
+//   openGraph: {
+//     title: "Blog | Tan Luc",
+//     description:
+//       "I write about programming, design, and occasionally life updates!",
+//     type: "website",
+//     url: "https://tanluc.dev/blog/Blog",
+//   },
+// };
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("Blog");
+  return {
+    title: t("title"),
+  };
+}
 
 export default async function BlogPage({ params }: { params: { locale: string } }) {
   const t = await getTranslations("Blog");
