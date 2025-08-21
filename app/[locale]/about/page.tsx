@@ -12,8 +12,6 @@ import oneMedicLogo from "public/work/onemedic-logo.png";
 
 import saigon from "public/gallery/saigon.webp";
 import dalat from "public/gallery/dalat.jpg";
-import forest from "public/gallery/forest.jpg";
-import mylove from "public/gallery/me-mt.jpg";
 import Greeting from "./components/Greeting";
 import { getTranslations } from "next-intl/server";
 
@@ -82,14 +80,14 @@ export default async function About() {
         className="flex animate-in flex-col gap-16 md:gap-24 mt-10 md:mt-0"
         style={{ "--index": 3 } as React.CSSProperties}
       >
-        <Section heading="About me" headingAlignment="left">
+        <Section heading={t('About me')} headingAlignment="left">
           <div className="flex flex-col gap-6">
-            {/* <p>
-              <Greeting /> I&apos;m Tan Luc! Originally from Viet Nam,
-              I&apos;m now based in the vibrant place that is Ho Chi Minh City.
-            </p> */}
+
             <p>
               <Greeting /> {t("intro")}
+            </p>
+            <p>
+              {t("reason")}
             </p>
             <p>
               {t("career", { years: new Date().getFullYear() - 2023 })}
@@ -97,19 +95,10 @@ export default async function About() {
             <p>
               {t("hobbies")}
             </p>
-            {/* <p>
-              My curiosity for computers began at age 14, which naturally led me
-              to pursue a career in tech. I&apos;ve been working as a frontend developer, specializing in full-stack development and design, for{" "}
-              {new Date().getFullYear() - 2023} years now!
-            </p>
-            <p>
-              When I&apos;m not at my desk, you can find me at the gym, running
-              or enjoying some coffee at a local
-              shop!
-            </p> */}
+
           </div>
         </Section>
-        <Section heading="Connect" headingAlignment="left">
+        <Section heading={t('Connect')} headingAlignment="left">
           <ul className="animated-list grid flex-grow grid-cols-1 gap-3 md:grid-cols-2">
             {ConnectLinks.map((link) => (
               <li className="col-span-1 transition-opacity" key={link.label}>
@@ -138,7 +127,7 @@ export default async function About() {
             ))}
           </ul>
         </Section>
-        <Section heading="Work" headingAlignment="left">
+        <Section heading={t('Work')} headingAlignment="left">
           <div className="flex w-full flex-col gap-8">
             <p>
               {t("work")}

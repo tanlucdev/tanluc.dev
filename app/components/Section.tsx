@@ -27,7 +27,7 @@ export default function Section({
           headingAlignment === "right" && "md:text-right",
         )}
       >
-        {t(heading)}
+        {heading}
       </h2>
       {children}
     </section>

@@ -10,7 +10,7 @@ export const formatDate = (date: string, locale: string) =>
     })
     :
     new Date(date).toLocaleString("vi-VN", {
-      month: "long",
+      month: "short",
       day: "numeric",
       year: "numeric",
     })

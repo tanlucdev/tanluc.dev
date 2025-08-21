@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Greeting() {
   const [greeting, setGreeting] = useState("Hi there");
@@ -18,7 +18,7 @@ export default function Greeting() {
             : t("Hello, night owl!");
 
     setGreeting(newGreeting);
-  }, []);
+  }, [t]);
 
   return <span>{greeting}</span>;
 } 

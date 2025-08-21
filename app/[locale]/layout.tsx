@@ -53,9 +53,10 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       className={`${GeistSans.variable} ${GeistMono.variable}`}
+      suppressHydrationWarning
     >
       <body className={`${inter.className} width-full bg-contrast text-primary antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="dark">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <Navigation />
             <div className="mx-auto max-w-[700px] px-6 pb-24 pt-16 md:px-6 md:pb-44 md:pt-20">

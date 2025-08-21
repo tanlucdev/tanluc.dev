@@ -1,7 +1,7 @@
 {
   "Intro": "hey, Tan Luc here!",
   "Pinned": "Pinned",
-  "Short description": "I'm a Frontend Developer in Viet Nam building for the web with a design-first mindset.",
+  "Short description": "I'm a Software Engineer in Viet Nam building for the web with a design-first mindset.",
   "Skills": "Skills",
   "No posts yet": "No posts yet. Check back soon!",
   "Navigation": {
@@ -22,9 +22,13 @@
   },
   "About": {
     "About": "About",
-    "A glimpse into me": "A glimpse into me",
+    "About me": "About me",
+    "Connect": "Connect",
+    "Work": "Work",
+    "A glimpse into me": "A glimpse into me.",
     "intro": "I'm Tan Luc! Originally from Viet Nam, I'm now based in the vibrant place that is Ho Chi Minh City.",
-    "career": "My curiosity for computers began at age 14, which naturally led me to pursue a career in tech. I've been working as a frontend developer, specializing in full-stack development and design, for {years} years now!",
+    "reason": "My curiosity for computers began at age 14, when I was selected for a talent IT class. After many exams, I won first prize in the National Youth Informatics Contest, which naturally led me to pursue a career in tech. ",
+    "career": "I've been working as a software engineer, specializing in full-stack development, for {years} years!",
     "hobbies": "When I'm not at my desk, you can find me at the gym, running or enjoying some coffee at a local shop! I'm a coffeeholic, I can go for coffee every day.",
     "work": "I specialize in Typescript, React, web development, UI/UX, and product design. But I am always learning new things. Here are some of the places I have worked.",
     "title": "About me | Tan Luc",

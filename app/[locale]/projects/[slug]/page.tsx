@@ -18,7 +18,7 @@ export default function Project({ params }: { params: any }) {
   }
 
   return (
-    <div className="flex flex-col gap-20">
+    <div className="animate-in flex flex-col gap-20">
       <article>
         <div className="flex flex-col gap-8">
           <div className="flex max-w-xl flex-col gap-4 text-pretty">

@@ -15,10 +15,10 @@ import darkLogo from "@/public/logo/tanlucdev-dark.png";
 import lightLogo from "@/public/logo/tanlucdev-light.png";
 
 const links = [
-  {
-    path: "/",
-    title: "Home",
-  },
+  // {
+  //   path: "/",
+  //   title: "Home",
+  // },
   {
     path: "/about",
     title: "About",
@@ -72,7 +72,7 @@ export default function Navigation() {
           {links.map((link) => (
             <Link
               key={link.path}
-              href={`/${locale}${link.path === '/' ? '' : link.path}`}
+              href={`/${locale}${link.path}`}
               className={`${currentPath === link.path ? "text-primary" : "text-secondary"
                 } relative rounded-lg px-3 py-1.5 text-sm transition-colors`}
               style={{
@@ -124,7 +124,7 @@ export default function Navigation() {
             {links.map((link) => (
               <Link
                 key={link.path}
-                href={`/${locale}${link.path === '/' ? '' : link.path}`}
+                href={`/${locale}${link.path}`}
                 className={`${currentPath === link.path ? "text-primary" : "text-secondary"
                   } relative rounded-lg px-3 py-2 text-sm transition-colors w-full`}
                 onClick={() => setMobileMenuOpen(false)}
