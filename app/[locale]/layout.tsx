@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://tanluc.dev"),
   title: 'Tan Luc',
   description:
-    'New York City based Software Engineer and a Content Creator, sharing insights on well-designed products and technology advancements.',
+    'Ho Chi Minh City based Software Engineer, sharing experience and and insights on technology.',
   openGraph: {
     title: "Tan Luc",
     url: "https://tanluc.dev/",
