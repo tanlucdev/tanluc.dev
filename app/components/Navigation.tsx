@@ -32,6 +32,10 @@ const links = [
     title: "Tools",
   },
 ] as const;
+
+const homeLink = { path: "/", title: "Home" };
+const mobileLinks = [homeLink, ...links]
+
 const HamburgerButton = ({ isOpen, onClick, theme }: { isOpen: boolean; onClick: () => void, theme: string | undefined }) => {
   return (
     <button
@@ -121,7 +125,7 @@ export default function Navigation() {
           className="md:hidden px-4 py-2 bg-background border-t border-border"
         >
           <div className="flex flex-col items-start gap-2 py-2">
-            {links.map((link) => (
+            {mobileLinks.map((link) => (
               <Link
                 key={link.path}
                 href={`/${locale}${link.path}`}
