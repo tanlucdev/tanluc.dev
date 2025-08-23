@@ -23,9 +23,6 @@ export default function ThemeSwitcher() {
   if (!mounted) {
     return null;
   }
-  filteredThemes.forEach((themeOption) => {
-    console.log(`Available theme: ${themeOption}`);
-  });
   return (
     <Select.Root value={theme} onValueChange={setTheme}>
       <Select.Trigger

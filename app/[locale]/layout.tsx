@@ -56,7 +56,7 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className={`${inter.className} width-full bg-contrast text-primary antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <NextIntlClientProvider locale={locale} messages={messages}>
             <Navigation />
             <div className="mx-auto max-w-[700px] px-6 pb-24 pt-16 md:px-6 md:pb-44 md:pt-20">
