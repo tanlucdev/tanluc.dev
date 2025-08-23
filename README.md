@@ -1,6 +1,6 @@
 # My Personal Website
 
-My personal portfolio website designed to be simplistic and clean while including features like MDX blog posts with dark mode, tool list, an about page, and more cool stuff. Inspired by Brian Ruizy.
+My personal portfolio website designed to be simplistic and clean while including features like MDX blog posts with dark mode, tool list, an about page, and more cool stuff. Inspired and designed by Brian Ruizy.
 
 ## Tech Stack
 
