@@ -9,6 +9,7 @@ import { Inter } from 'next/font/google';
 
 import Navigation from '@/app/components/Navigation';
 import { ThemeProvider } from '@/app/components/ThemeProvider';
+import previewImage from '@/public/preview-image.png'
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tanluc.dev"),
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tan Luc",
     url: "https://tanluc.dev/",
-    images: [{ url: "https://tanluc.dev/api/og?title=tanluc.dev", alt: "tanluc.dev" }],
+    images: [{ url: previewImage.src, alt: "tanluc.dev" }],
   },
 };
 const inter = Inter({
