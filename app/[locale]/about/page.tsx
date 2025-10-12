@@ -9,6 +9,7 @@ import Section from "@/app/components/Section";
 
 import newAiLogo from "public/work/newai-logo.webp";
 import oneMedicLogo from "public/work/onemedic-logo.png";
+import isbLogo from "public/work/isb-logo.png"
 
 import saigon from "public/gallery/saigon.webp";
 import dalat from "public/gallery/dalat.jpg";
@@ -145,9 +146,16 @@ export default async function About() {
 
 const workplaces = [
   {
+    title: "Intern Frontend Developer",
+    company: "ISB Viet Nam",
+    date: "2025 -",
+    imageSrc: isbLogo,
+    link: "https://isb-vietnam.com.vn/company/",
+  },
+  {
     title: "Fresher Frontend Developer",
     company: "OneMedic",
-    date: "2025 - ",
+    date: "2024 - 2025",
     imageSrc: oneMedicLogo,
     link: "https://onemedic.vn/",
   },
@@ -158,7 +166,6 @@ const workplaces = [
     imageSrc: newAiLogo,
     link: "https://www.newai.vn/en",
   },
-
 ];
 
 function ExperienceSection() {
