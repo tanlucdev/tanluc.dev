@@ -14,7 +14,7 @@ import forest from "public/gallery/forest.jpg";
 import vinyl from "public/gallery/vinyl-lover.jpg";
 import dalat from "public/gallery/dalat.jpg";
 import meMt from "public/gallery/me-mt.jpg";
-
+import fuji from "public/gallery/fuji.jpg"
 import Halo from "@/app/components/Halo";
 
 const ticketingFont = localFont({
@@ -145,7 +145,7 @@ export default function Gallery() {
     <>
       <section className="flex gap-4 h-[268px] relative">
         <Photo
-          src={meMt}
+          src={fuji}
           meta="2021-07-12"
           alt="Me and my Mt"
           width={324}

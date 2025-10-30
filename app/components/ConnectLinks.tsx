@@ -29,6 +29,7 @@ const ConnectLinks: ConnectLink[] = [
     href: "https://www.instagram.com/tanlucdev/",
     icon: <FaInstagram />,
   },
+
 ];
 
 export default ConnectLinks;
