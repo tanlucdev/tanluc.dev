@@ -1,22 +1,17 @@
 "use client";
 
-import { ReactNode } from "react";
-import Image, { StaticImageData } from "next/image";
-import { motion } from "framer-motion";
 import clsx from "clsx";
-import localFont from 'next/font/local'
+import { motion } from "framer-motion";
+import localFont from 'next/font/local';
+import Image, { StaticImageData } from "next/image";
+import { ReactNode } from "react";
 
-import NYC from "public/gallery/nyc.jpg";
-import meLily from "public/gallery/me-lily.jpg";
-import colorado from "public/gallery/colorado.jpg";
-import cowboy from "public/gallery/cowboy-bike.webp";
-import forest from "public/gallery/forest.jpg";
-import vinyl from "public/gallery/vinyl-lover.jpg";
-import dalat from "public/gallery/dalat.jpg";
-import meMt from "public/gallery/me-mt.jpg";
-import fuji from "public/gallery/fuji.jpg"
 import Halo from "@/app/components/Halo";
-
+import dalat from "public/gallery/dalat.jpg";
+import forest from "public/gallery/forest.jpg";
+import fuji from "public/gallery/fuji.jpg";
+import vinyl from "public/gallery/vinyl-lover.jpg";
+import saigon from "public/gallery/saigon.webp";
 const ticketingFont = localFont({
   src: "../../../../public/ticketing.woff2",
   display: "swap",
@@ -145,7 +140,7 @@ export default function Gallery() {
     <>
       <section className="flex gap-4 h-[268px] relative">
         <Photo
-          src={fuji}
+          src={saigon}
           meta="2021-07-12"
           alt="Me and my Mt"
           width={324}

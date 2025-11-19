@@ -10,6 +10,7 @@ import Section from "@/app/components/Section";
 import newAiLogo from "public/work/newai-logo.webp";
 import oneMedicLogo from "public/work/onemedic-logo.png";
 import isbLogo from "public/work/isb-logo.png"
+import walaLogo from "public/work/wala-logo.jpg"
 
 import saigon from "public/gallery/saigon.webp";
 import dalat from "public/gallery/dalat.jpg";
@@ -146,7 +147,14 @@ export default async function About() {
 
 const workplaces = [
   {
-    title: "Intern Frontend Developer",
+    title: "Frontend Engineer",
+    company: "AXDX Viet Nam ",
+    date: "2025 -",
+    imageSrc: walaLogo,
+    link: "https://www.facebook.com/wala.ict.kr",
+  },
+  {
+    title: "Frontend Developer",
     company: "ISB Viet Nam",
     date: "2025 -",
     imageSrc: isbLogo,
