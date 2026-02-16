@@ -12,8 +12,8 @@ import oneMedicLogo from "public/work/onemedic-logo.png";
 import isbLogo from "public/work/isb-logo.png"
 import walaLogo from "public/work/wala-logo.jpg"
 
-import saigon from "public/gallery/saigon.webp";
-import dalat from "public/gallery/dalat.jpg";
+import me from "public/gallery/me-and-sunset.webp";
+import sea from "public/gallery/sea-sunset.webp";
 import Greeting from "./components/Greeting";
 import { getTranslations } from "next-intl/server";
 
@@ -52,7 +52,7 @@ export default async function About() {
           style={{ "--index": 1 } as React.CSSProperties}
         >
           <Image
-            src={saigon}
+            src={sea}
             alt={"Saigon.jpg"}
             width={324}
             height={139}
@@ -66,7 +66,7 @@ export default async function About() {
           style={{ "--index": 2 } as React.CSSProperties}
         >
           <Image
-            src={dalat}
+            src={me}
             alt={"Da Lat, Vietnam"}
             width={160}
             height={180}

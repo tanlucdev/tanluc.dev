@@ -7,11 +7,14 @@ import Image, { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 
 import Halo from "@/app/components/Halo";
-import dalat from "public/gallery/dalat.jpg";
-import forest from "public/gallery/forest.jpg";
-import fuji from "public/gallery/fuji.jpg";
-import vinyl from "public/gallery/vinyl-lover.jpg";
-import saigon from "public/gallery/saigon.webp";
+import run from "public/gallery/run.webp";
+import forest from "public/gallery/forest.webp";
+import me from "public/gallery/me-and-sunset.webp";
+import sea from "public/gallery/sea-sunset.webp";
+import light_sunset from "public/gallery/light-sunset.webp";
+import dark_sunset from "public/gallery/dark-sunset.webp";
+
+
 const ticketingFont = localFont({
   src: "../../../../public/ticketing.woff2",
   display: "swap",
@@ -140,7 +143,7 @@ export default function Gallery() {
     <>
       <section className="flex gap-4 h-[268px] relative">
         <Photo
-          src={saigon}
+          src={sea}
           meta="2021-07-12"
           alt="Me and my Mt"
           width={324}
@@ -150,9 +153,9 @@ export default function Gallery() {
           index={1}
         />
         <Photo
-          src={forest}
+          src={light_sunset}
           meta="2017-07-04"
-          alt="lost in forest"
+          alt="light sunset"
           width={230}
           height={250}
           rotate={6.3}
@@ -161,9 +164,9 @@ export default function Gallery() {
           flipDirection="left"
         />
         <Photo
-          src={dalat}
+          src={dark_sunset}
           meta="2021-05-20"
-          alt="Da Lat, Viet Nam"
+          alt="dark sunset"
           width={280}
           height={235}
           rotate={-5.4}
@@ -171,7 +174,7 @@ export default function Gallery() {
           index={3}
         />
         <Photo
-          src={vinyl}
+          src={me}
           meta="2022-09-10"
           alt={"Im vinyl lover"}
           width={220}
