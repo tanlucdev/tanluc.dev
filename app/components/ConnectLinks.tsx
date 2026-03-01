@@ -23,12 +23,7 @@ const ConnectLinks: ConnectLink[] = [
     label: "GitHub",
     href: "https://github.com/tanlucdev",
     icon: <FaGithub />,
-  },
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/tanlucdev/",
-    icon: <FaInstagram />,
-  },
+  }
 
 ];
 
