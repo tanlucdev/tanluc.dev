@@ -48,7 +48,7 @@ export default function Home({ params }: { params: { locale: string } }) {
           style={{ "--index": 2 } as React.CSSProperties}
         >
           <Link
-            href="https://drive.google.com/file/d/1Vv7eQM2k9J13oit0JKh4kxyoqGWqP_c6/view?usp=sharing"
+            href="https://drive.google.com/file/d/1AH-1oxIMN_F1GKO06rx2tbafetIbP2I5/view?usp=sharing"
             className="flex w-fit items-center rounded-full bg-secondary px-3 py-1 no-underline hover:bg-tertiary"
           >
             Resume
