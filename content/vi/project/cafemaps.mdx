@@ -1,0 +1,98 @@
+---
+title: "Cafe Maps"
+date: "2026"
+summary: "Nền tảng khám phá quán cà phê tại TP.HCM theo vibe, vị trí, giờ mở cửa và nhu cầu thực tế, đi kèm backend geospatial và CMS quản trị nội dung."
+url: "https://cafemaps.net"
+tags: ["Next.js", "React", "NestJS", "PostgreSQL", "PostGIS", "Prisma", "Supabase", "Tailwind CSS", "Vite", "OSRM"]
+---
+
+### Về Dự Án
+
+**Cafe Maps** là một sản phẩm full-stack giúp người dùng tìm quán cà phê phù hợp tại TP.HCM: không chỉ theo tên hay quận, mà theo đúng ngữ cảnh sử dụng như làm việc, học tập, hẹn hò, gặp bạn bè, chill một mình hoặc cần một không gian yên tĩnh.
+
+Dự án được xây dựng như một hệ sinh thái hoàn chỉnh gồm website người dùng, REST API backend và CMS nội bộ. Trọng tâm của sản phẩm là trải nghiệm tìm kiếm nhanh, dữ liệu quán được biên tập kỹ, khả năng định vị gần tôi bằng PostGIS/OSRM và quy trình quản trị đủ tốt để vận hành nội dung lâu dài.
+
+<Image
+  src="/vi/projects/cafemaps/image.png"
+  alt="Cafe Maps main interface"
+  width={1731}
+  height={909}
+  caption="Giao diện Cafe Maps tập trung vào khám phá quán cà phê theo mood, khu vực và trải nghiệm thực tế."
+  size="lg"
+  contained
+/>
+
+### Tính Năng Nổi Bật
+
+- 🔎 **Tìm kiếm & lọc thông minh:** lọc theo quận, vibe, mục đích, khoảng giá, trạng thái đang mở cửa và sắp xếp theo popular/rating/newest.
+- 📍 **Gần tôi:** định vị người dùng, tìm quán trong bán kính chỉ định bằng PostGIS và hỗ trợ khoảng cách tuyến đường qua OSRM.
+- 🌐 **Đa ngôn ngữ:** hỗ trợ tiếng Việt và tiếng Anh cho routing, metadata, nhãn lọc, nội dung quán và blog.
+- 🧭 **Trang chi tiết quán:** gallery ảnh, ảnh menu, giờ mở cửa, giá, tiện ích, chỗ gửi xe, Google Maps, chia sẻ, lưu quán và Schema.org JSON-LD.
+- 🧠 **Gợi ý theo vibe:** quiz và guided filter giúp người dùng đi từ nhu cầu mơ hồ đến danh sách quán phù hợp.
+- ✍️ **Blog editorial:** hệ thống bài viết song ngữ với hero image, category, tag, checklist, related posts và metadata tối ưu SEO.
+- 🙋 **Đóng góp quán:** người dùng gửi link Google Maps, lý do đề xuất và ảnh; admin duyệt trước khi xuất bản.
+- 🔐 **Tài khoản & lưu quán:** đăng ký, đăng nhập, hồ sơ cá nhân, danh sách quán yêu thích và collection.
+
+<Image
+  src="/vi/projects/cafemaps/home-polaroid-1.jpg"
+  alt="Cafe Maps visual asset"
+  width={900}
+  height={600}
+  caption="Hình ảnh thật giúp trải nghiệm khám phá quán có cảm giác gần gũi, đáng tin và giàu ngữ cảnh hơn."
+  size="lg"
+  contained
+/>
+
+### Tech Stack
+
+- **Frontend:** Next.js App Router, React 19, TypeScript, next-intl, TanStack Query, Framer Motion, Lenis, Tailwind CSS, shadcn/Base UI, lucide-react.
+- **Backend:** NestJS, REST API, Prisma ORM, PostgreSQL, PostGIS, JWT, bcrypt, class-validator, Swagger, compression.
+- **CMS/Admin:** Vite, React, React Router, TanStack Query, TanStack Table, React Hook Form, Zod, Zustand, Radix UI, Tailwind CSS.
+- **Storage & Media:** Supabase Storage, Sharp, WebP conversion, HEIC/HEIF fallback conversion, remote image import with URL safety checks.
+- **Maps & Location:** PostGIS geography queries, OSRM route distance, Google Maps deep links.
+- **Infra:** Vercel for frontend/CMS, Render-ready backend, environment-based CORS, API cache headers and graceful fallback data.
+
+### Kiến Trúc Tổng Quan
+
+Cafe Maps được tách thành ba lớp rõ ràng:
+
+- **Frontend public site** xử lý trải nghiệm khám phá, search, SEO, i18n, detail page, saved cafes, blog và contribution flow.
+- **Backend API** chịu trách nhiệm chuẩn hóa dữ liệu, phân trang, lọc, auth, geospatial search, upload ảnh, quản lý submissions và nội dung blog.
+- **CMS** cung cấp giao diện vận hành cho admin: dashboard, CRUD quán, CRUD blog, quản lý user, duyệt đóng góp, publish/unpublish và featured ordering.
+
+Cách tách này giúp phần trải nghiệm người dùng luôn nhẹ và cache tốt, trong khi các tác vụ nặng như xử lý ảnh, kiểm duyệt, role admin và truy vấn địa lý được gom vào backend.
+
+### Technical Implementation
+
+#### Search, Filter & Geospatial Query
+
+Backend dùng Prisma để build filter theo search, quận, vibe, purpose, khoảng giá, trạng thái mở cửa và sort mode. Với tính năng gần tôi, API dùng PostGIS `ST_DWithin` và `ST_Distance` để tìm quán trong bán kính, sau đó có thể gọi OSRM Table API để trả về khoảng cách lái xe thực tế.
+
+Nếu OSRM timeout, rate limit hoặc chưa được cấu hình, hệ thống tự fallback về khoảng cách đường chim bay thay vì làm hỏng trải nghiệm người dùng.
+
+```txt
+GET /api/cafes/nearby?lat={lat}&lng={lng}&radius={radiusKm}&distanceMode=route
+```
+
+#### Localized Content Pipeline
+
+Dữ liệu quán và blog có trường tiếng Việt/tiếng Anh riêng. Backend có mapper chuẩn hóa theo `locale`, frontend gửi locale vào query và render route `/vi` hoặc `/en` bằng `next-intl`. Cách này giữ API rõ ràng, tránh duplicate page logic và vẫn đảm bảo SEO cho từng ngôn ngữ.
+
+#### CMS Workflow
+
+CMS được thiết kế cho vận hành thật: admin có thể tạo/sửa quán theo tab, upload ảnh, import ảnh từ URL, đổi thứ tự gallery, chọn cover/menu image, bật/tắt publish, đánh dấu featured và duyệt submissions thành draft cafe. Blog editor hỗ trợ nội dung song ngữ, markdown toolbar, preview, tag, checklist, lịch đăng và trạng thái featured.
+
+#### Media Processing
+
+Upload ảnh đi qua backend để chuyển sang WebP bằng Sharp, giới hạn dung lượng, hỗ trợ HEIC/HEIF fallback và lưu lên Supabase Storage. Với import ảnh từ URL, backend kiểm tra protocol, credentials, redirect và private IP để giảm rủi ro SSRF trước khi tải ảnh.
+
+### Điều Dự Án Thể Hiện
+
+- Khả năng thiết kế một sản phẩm full-stack có frontend, backend và CMS vận hành đồng bộ.
+- Kinh nghiệm xử lý dữ liệu địa lý với PostGIS và tích hợp routing distance bằng OSRM.
+- Tư duy UX cho search/filter, SEO, i18n, cache, fallback và trạng thái lỗi.
+- Kỹ năng xây dựng admin workflow thực tế: image pipeline, moderation, publishing, content localization và dashboard metrics.
+
+### Live Demo
+
+[cafemaps.net](https://cafemaps.net)

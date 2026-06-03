@@ -8,7 +8,8 @@
     "Home": "Home",
     "About": "About",
     "Blog": "Blog",
-    "Tools": "Tools"
+    "Tools": "Tools",
+    "Milestones": "Milestones"
   },
   "NotFound": {
     "message": "Uh oh! This page does not exist, maybe you clicked an old link or misspelled. Please try again…",

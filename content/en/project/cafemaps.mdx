@@ -1,0 +1,98 @@
+---
+title: "Cafe Maps"
+date: "2026"
+summary: "A full-stack cafe discovery platform for Ho Chi Minh City, built around mood-based search, geospatial recommendations, editorial content, and an internal CMS."
+url: "https://cafemaps.net"
+tags: ["Next.js", "React", "NestJS", "PostgreSQL", "PostGIS", "Prisma", "Supabase", "Tailwind CSS", "Vite", "OSRM"]
+---
+
+### About the Project
+
+**Cafe Maps** is a full-stack product for discovering cafes in Ho Chi Minh City. Instead of treating cafe search as a simple directory, it helps users find places by real intent: working, studying, dating, meeting friends, going solo, finding a quiet corner, or exploring a specific neighborhood.
+
+The project is structured as a complete product ecosystem: a public-facing website, a NestJS backend API, and an internal CMS. The core focus is fast discovery, curated cafe data, location-aware recommendations, bilingual content, and a maintainable publishing workflow for long-term operation.
+
+<Image
+  src="/en/projects/cafemaps/image.png"
+  alt="Cafe Maps main interface"
+  width={1731}
+  height={909}
+  caption="Cafe Maps focuses on mood-based discovery, curated cafe data, and location-aware search for HCMC."
+  size="lg"
+  contained
+/>
+
+### Features
+
+- 🔎 **Smart search and filters:** search by name, district, vibe, purpose, price range, open-now status, and sorting mode.
+- 📍 **Near me discovery:** browser geolocation, radius-based cafe lookup with PostGIS, and optional driving-distance results through OSRM.
+- 🌐 **Bilingual experience:** Vietnamese and English routes, UI labels, metadata, cafe content, and blog content.
+- 🧭 **Cafe detail pages:** image gallery, menu image, opening hours, pricing, amenities, parking notes, Google Maps links, share/save actions, and Schema.org JSON-LD.
+- 🧠 **Vibe-based recommendations:** quiz and guided filters that turn broad intent into practical cafe suggestions.
+- ✍️ **Editorial blog:** localized blog posts with hero images, categories, tags, checklists, related posts, and SEO metadata.
+- 🙋 **Community contribution:** users can submit Google Maps links, notes, and photos for admin review.
+- 🔐 **Accounts and saved cafes:** authentication, profile page, saved cafe lists, and collections.
+
+<Image
+  src="/en/projects/cafemaps/home-polaroid-1.jpg"
+  alt="Cafe Maps visual asset"
+  width={900}
+  height={600}
+  caption="Real cafe imagery makes the discovery experience more tactile, trustworthy, and context-rich."
+  size="lg"
+  contained
+/>
+
+### Tech Stack
+
+- **Frontend:** Next.js App Router, React 19, TypeScript, next-intl, TanStack Query, Framer Motion, Lenis, Tailwind CSS, shadcn/Base UI, lucide-react.
+- **Backend:** NestJS, REST API, Prisma ORM, PostgreSQL, PostGIS, JWT, bcrypt, class-validator, Swagger, compression.
+- **CMS/Admin:** Vite, React, React Router, TanStack Query, TanStack Table, React Hook Form, Zod, Zustand, Radix UI, Tailwind CSS.
+- **Storage and media:** Supabase Storage, Sharp, WebP conversion, HEIC/HEIF fallback conversion, safe remote image import.
+- **Maps and location:** PostGIS geography queries, OSRM route distance, Google Maps deep links.
+- **Infrastructure:** Vercel for frontend/CMS, Render-ready backend, environment-based CORS, API cache headers, and fallback data.
+
+### Architecture
+
+Cafe Maps is split into three clear layers:
+
+- **Public frontend:** handles discovery, search, SEO, i18n, detail pages, saved cafes, blog, and contribution flows.
+- **Backend API:** owns data normalization, pagination, filters, auth, geospatial search, image processing, submissions, and blog content.
+- **CMS:** gives admins a focused workspace for dashboard metrics, cafe CRUD, blog publishing, user management, contribution review, publish toggles, and featured ordering.
+
+This separation keeps the user-facing site fast and cache-friendly while moving heavier responsibilities such as media processing, role-based access, moderation, and geospatial queries into the backend.
+
+### Technical Implementation
+
+#### Search, Filters, and Geospatial Query
+
+The backend builds cafe queries with Prisma across search terms, district, vibe, purpose, price range, open-now status, and sort mode. For nearby discovery, it uses PostGIS `ST_DWithin` and `ST_Distance` to find cafes inside a radius, then optionally calls the OSRM Table API to return real driving distance.
+
+If OSRM times out, is rate-limited, or is not configured, the API gracefully falls back to straight-line distance instead of breaking the user flow.
+
+```txt
+GET /api/cafes/nearby?lat={lat}&lng={lng}&radius={radiusKm}&distanceMode=route
+```
+
+#### Localized Content Pipeline
+
+Cafe and blog records store Vietnamese and English fields separately. The backend maps content by `locale`, while the frontend sends locale-aware requests and renders `/vi` and `/en` routes with `next-intl`. This keeps page logic clean while supporting localized SEO.
+
+#### CMS Workflow
+
+The CMS is designed for real content operations. Admins can create and edit cafes in tabbed forms, upload and import images, reorder galleries, select cover/menu images, toggle publish status, mark featured cafes, and approve submissions into draft cafe records. The blog editor supports bilingual content, markdown tools, preview mode, tags, checklists, scheduled publishing, and featured posts.
+
+#### Media Processing
+
+Images are routed through the backend, converted to WebP with Sharp, size-limited, and stored in Supabase Storage. The backend also supports HEIC/HEIF fallback conversion and safe remote image import by validating protocol, credentials, redirects, and private IP targets before downloading.
+
+### What It Demonstrates
+
+- Ability to design a complete full-stack product with frontend, backend, and CMS working together.
+- Practical experience with geospatial data through PostgreSQL/PostGIS and route-distance integration through OSRM.
+- Product-minded UX decisions around search, filters, SEO, localization, caching, fallback states, and error handling.
+- Operational admin workflows for media, moderation, publishing, localization, and dashboard metrics.
+
+### Live Demo
+
+[cafemaps.net](https://cafemaps.net)
