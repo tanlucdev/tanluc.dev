@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 
 import Navigation from "@/app/components/Navigation";
 import { ThemeProvider } from "@/app/components/ThemeProvider";
@@ -16,12 +17,16 @@ export const metadata: Metadata = {
   title: "Tan Luc",
   description:
     "Ho Chi Minh City based Software Engineer, sharing experience and and insights on technology.",
+  verification: {
+    google: "2DX2R2IaVQIeDR4rioa_gIlZ1njQDvftJGdkHxP4J6I",
+  },
   openGraph: {
     title: "Tan Luc",
     url: "https://tanluc.dev/",
     images: [{ url: previewImage.src, alt: "tanluc.dev" }],
   },
 };
+const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -68,6 +73,22 @@ export default async function LocaleLayout({
           </NextIntlClientProvider>
         </ThemeProvider>
         <Analytics />
+        {googleAnalyticsId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${googleAnalyticsId}');
+              `}
+            </Script>
+          </>
+        ) : null}
       </body>
     </html>
   );

@@ -24,3 +24,7 @@ Make sure you have Node.js v18.17.0+ installed on your machine.
 1. **Install Dependencies**: `npm install`
 2. **Environment variables**: Copy `.env.example` to a new `.env.local`
 3. **Start Developing**: `npm run dev`, this will automatically create the .contentlayer files and start the Next.js development server.
+
+## Google Search Console and Analytics
+
+See [GOOGLE_SETUP.md](./GOOGLE_SETUP.md) for the production verification, DNS, and GA4 setup steps.

@@ -6,5 +6,5 @@ export default createMiddleware(routing);
 
 // Skip Next.js internals & public assets
 export const config = {
-  matcher: ['/((?!_next|favicon.ico|images|api).*)']
+  matcher: ['/((?!_next|favicon.ico|images|api|.*\\..*).*)']
 };
