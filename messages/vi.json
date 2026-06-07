@@ -55,6 +55,20 @@
     "noPosts": "bài viết cho đến nay. Hãy theo dõi mình để biết thêm!",
     "title": "Blog | Tấn Lực"
   },
+  "Milestones": {
+    "title": "Dấu mốc",
+    "metaTitle": "Dấu mốc | Tấn Lực",
+    "intro": "Bốn bài viết ngắn về những khoảnh khắc cá nhân và nghề nghiệp đã định hình cách mình học, xây dựng và trưởng thành.",
+    "description": "Tab Tất cả hiển thị toàn bộ bài viết chính. Khi chọn từng chủ đề, danh sách sẽ lọc lại theo nhóm trải nghiệm: chạy bộ, trekking, dự án và tiếng Anh.",
+    "filtersLabel": "Bộ lọc dấu mốc",
+    "all": "Tất cả",
+    "back": "Tất cả dấu mốc",
+    "stats": "Thông số chính",
+    "routeImageAlt": "Hình ảnh minh họa cho dấu mốc",
+    "ctaTitle": "Không chỉ là code",
+    "ctaText": "Mình tin cách ta rèn luyện, khám phá và suy ngẫm cũng định hình cách ta xây dựng sản phẩm.",
+    "ctaAction": "Đọc blog"
+  },
   "Greeting": {
     "Good morning": "Chào buổi sáng,",
     "Good afternoon": "Chào buổi chiều,",

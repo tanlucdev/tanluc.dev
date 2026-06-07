@@ -27,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("About");
   return {
     title: t("title"),
-    description: t("aboutDescription"), // Add this key to your translation files
+    description: t("aboutDescription"),
   };
 }
 
@@ -83,7 +83,7 @@ export default async function About() {
         style={{ "--index": 3 } as React.CSSProperties}
       >
         <Section heading={t('About me')} headingAlignment="left">
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 text-base leading-7 text-secondary">
 
             <p>
               <Greeting /> {t("intro")}
@@ -101,7 +101,7 @@ export default async function About() {
           </div>
         </Section>
         <Section heading={t('Connect')} headingAlignment="left">
-          <ul className="animated-list grid flex-grow grid-cols-1 gap-3 md:grid-cols-2">
+          <ul className="animated-list grid flex-grow grid-cols-1 gap-3 text-base leading-7 md:grid-cols-2">
             {ConnectLinks.map((link) => (
               <li className="col-span-1 transition-opacity" key={link.label}>
                 <Link
@@ -130,7 +130,7 @@ export default async function About() {
           </ul>
         </Section>
         <Section heading={t('Work')} headingAlignment="left">
-          <div className="flex w-full flex-col gap-8">
+          <div className="flex w-full flex-col gap-8 text-base leading-7 text-secondary">
             <p>
               {t("work")}
             </p>

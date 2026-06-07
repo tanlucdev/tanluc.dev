@@ -13,11 +13,11 @@ tags: ["Next.js", "React", "NestJS", "PostgreSQL", "PostGIS", "Prisma", "Supabas
 Dự án được xây dựng như một hệ sinh thái hoàn chỉnh gồm website người dùng, REST API backend và CMS nội bộ. Trọng tâm của sản phẩm là trải nghiệm tìm kiếm nhanh, dữ liệu quán được biên tập kỹ, khả năng định vị gần tôi bằng PostGIS/OSRM và quy trình quản trị đủ tốt để vận hành nội dung lâu dài.
 
 <Image
-  src="/vi/projects/cafemaps/image.png"
-  alt="Cafe Maps main interface"
-  width={1731}
-  height={909}
-  caption="Giao diện Cafe Maps tập trung vào khám phá quán cà phê theo mood, khu vực và trải nghiệm thực tế."
+  src="/projects/cafemaps/cafemaps-cover.webp"
+  alt="Cafe Maps portfolio cover showing homepage, cafe listing, and mobile detail screens"
+  width={3344}
+  height={1882}
+  caption="Cafe Maps kết hợp trải nghiệm khám phá ấm áp cho người dùng với tìm kiếm, trang chi tiết mobile và gợi ý quán theo vị trí."
   size="lg"
   contained
 />
@@ -26,22 +26,34 @@ Dự án được xây dựng như một hệ sinh thái hoàn chỉnh gồm web
 
 - 🔎 **Tìm kiếm & lọc thông minh:** lọc theo quận, vibe, mục đích, khoảng giá, trạng thái đang mở cửa và sắp xếp theo popular/rating/newest.
 - 📍 **Gần tôi:** định vị người dùng, tìm quán trong bán kính chỉ định bằng PostGIS và hỗ trợ khoảng cách tuyến đường qua OSRM.
+
+<Image
+  src="/projects/cafemaps/cafemaps-list.webp"
+  alt="Cafe Maps discovery and search interface with cafe cards and filters"
+  width={3344}
+  height={1882}
+  caption="Trải nghiệm discovery giúp người dùng duyệt quán theo tìm kiếm, bộ lọc, vibe tag, trạng thái mở cửa, rating và khoảng giá."
+  size="lg"
+  contained
+/>
+
 - 🌐 **Đa ngôn ngữ:** hỗ trợ tiếng Việt và tiếng Anh cho routing, metadata, nhãn lọc, nội dung quán và blog.
 - 🧭 **Trang chi tiết quán:** gallery ảnh, ảnh menu, giờ mở cửa, giá, tiện ích, chỗ gửi xe, Google Maps, chia sẻ, lưu quán và Schema.org JSON-LD.
+
+<Image
+  src="/projects/cafemaps/cafemaps-detail.webp"
+  alt="Cafe Maps cafe detail page shown on desktop and mobile"
+  width={3344}
+  height={1882}
+  caption="Trang chi tiết quán cung cấp đủ ngữ cảnh trước khi ghé: hình ảnh, giờ mở cửa, địa chỉ, vibe tag, tiện ích, khoảng giá, lưu quán và chỉ đường."
+  size="lg"
+  contained
+/>
+
 - 🧠 **Gợi ý theo vibe:** quiz và guided filter giúp người dùng đi từ nhu cầu mơ hồ đến danh sách quán phù hợp.
 - ✍️ **Blog editorial:** hệ thống bài viết song ngữ với hero image, category, tag, checklist, related posts và metadata tối ưu SEO.
 - 🙋 **Đóng góp quán:** người dùng gửi link Google Maps, lý do đề xuất và ảnh; admin duyệt trước khi xuất bản.
 - 🔐 **Tài khoản & lưu quán:** đăng ký, đăng nhập, hồ sơ cá nhân, danh sách quán yêu thích và collection.
-
-<Image
-  src="/vi/projects/cafemaps/home-polaroid-1.jpg"
-  alt="Cafe Maps visual asset"
-  width={900}
-  height={600}
-  caption="Hình ảnh thật giúp trải nghiệm khám phá quán có cảm giác gần gũi, đáng tin và giàu ngữ cảnh hơn."
-  size="lg"
-  contained
-/>
 
 ### Tech Stack
 
@@ -81,6 +93,16 @@ Dữ liệu quán và blog có trường tiếng Việt/tiếng Anh riêng. Back
 #### CMS Workflow
 
 CMS được thiết kế cho vận hành thật: admin có thể tạo/sửa quán theo tab, upload ảnh, import ảnh từ URL, đổi thứ tự gallery, chọn cover/menu image, bật/tắt publish, đánh dấu featured và duyệt submissions thành draft cafe. Blog editor hỗ trợ nội dung song ngữ, markdown toolbar, preview, tag, checklist, lịch đăng và trạng thái featured.
+
+<Image
+  src="/projects/cafemaps/cafemaps-cms.webp"
+  alt="Cafe Maps CMS admin dashboard, cafe management, edit form, and blog editor"
+  width={3344}
+  height={1882}
+  caption="CMS nội bộ hỗ trợ CRUD quán, quản lý blog, publishing workflow, submissions, dashboard metrics và vận hành nội dung song ngữ."
+  size="lg"
+  contained
+/>
 
 #### Media Processing
 

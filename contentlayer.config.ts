@@ -14,12 +14,14 @@ const getSlug = (doc: any) => doc._raw.sourceFileName.replace(/\.mdx$/, "");
 const getLocale = (doc: any) => {
   const pathParts = doc._raw.sourceFilePath.split('/');
 
-  // For blog: blog/en/post.mdx or blog/vi/post.mdx
+  // For localized content: en/blog/post.mdx, vi/project/post.mdx, etc.
   if (pathParts[1] === 'blog') {
     return pathParts[0];
   }
-  // For projects: en/project/post.mdx or vi/project/post.mdx
   if (pathParts[1] === 'project') {
+    return pathParts[0];
+  }
+  if (pathParts[1] === 'milestone') {
     return pathParts[0];
   }
 
@@ -82,7 +84,21 @@ const projectComputedFields: ComputedFields = {
   },
   image: {
     type: "string",
-    resolve: (doc) => `/${getLocale(doc)}/projects/${getSlug(doc)}/image.png`,
+    resolve: (doc) => {
+      const slug = getSlug(doc);
+      const locale = getLocale(doc);
+      const sharedCoverPath = path.join(
+        process.cwd(),
+        "public",
+        "projects",
+        slug,
+        `${slug}-cover.webp`,
+      );
+
+      return fs.existsSync(sharedCoverPath)
+        ? `/projects/${slug}/${slug}-cover.webp`
+        : `/${locale}/projects/${slug}/image.png`;
+    },
   },
 };
 
@@ -101,9 +117,43 @@ export const Project = defineDocumentType(() => ({
   computedFields: projectComputedFields,
 }));
 
+const milestoneComputedFields: ComputedFields = {
+  slug: {
+    type: "string",
+    resolve: (doc) => getSlug(doc),
+  },
+  locale: {
+    type: "string",
+    resolve: (doc) => getLocale(doc),
+  },
+};
+
+export const Milestone = defineDocumentType(() => ({
+  name: "Milestone",
+  filePathPattern: "**/milestone/*.mdx",
+  contentType: "mdx",
+  fields: {
+    title: { type: "string", required: true },
+    summary: { type: "string", required: true },
+    date: { type: "string", required: true },
+    displayDate: { type: "string", required: false },
+    year: { type: "string", required: true },
+    category: { type: "string", required: true },
+    action: { type: "string", required: false },
+    href: { type: "string", required: false },
+    detail: { type: "boolean", required: false },
+    heroImage: { type: "string", required: false },
+    routeImage: { type: "string", required: false },
+    detailLayout: { type: "string", required: false },
+    statsTitle: { type: "string", required: false },
+    stats: { type: "json", required: false },
+  },
+  computedFields: milestoneComputedFields,
+}));
+
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [Blog, Project],
+  documentTypes: [Blog, Project, Milestone],
   mdx: {
     rehypePlugins: [rehypePrism, rehypeSlug],
   },

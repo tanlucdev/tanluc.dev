@@ -13,11 +13,11 @@ tags: ["Next.js", "React", "NestJS", "PostgreSQL", "PostGIS", "Prisma", "Supabas
 The project is structured as a complete product ecosystem: a public-facing website, a NestJS backend API, and an internal CMS. The core focus is fast discovery, curated cafe data, location-aware recommendations, bilingual content, and a maintainable publishing workflow for long-term operation.
 
 <Image
-  src="/en/projects/cafemaps/image.png"
-  alt="Cafe Maps main interface"
-  width={1731}
-  height={909}
-  caption="Cafe Maps focuses on mood-based discovery, curated cafe data, and location-aware search for HCMC."
+  src="/projects/cafemaps/cafemaps-cover.webp"
+  alt="Cafe Maps portfolio cover showing homepage, cafe listing, and mobile detail screens"
+  width={3344}
+  height={1882}
+  caption="Cafe Maps combines a warm public discovery experience with search, mobile detail pages, and location-aware cafe recommendations."
   size="lg"
   contained
 />
@@ -26,22 +26,34 @@ The project is structured as a complete product ecosystem: a public-facing websi
 
 - 🔎 **Smart search and filters:** search by name, district, vibe, purpose, price range, open-now status, and sorting mode.
 - 📍 **Near me discovery:** browser geolocation, radius-based cafe lookup with PostGIS, and optional driving-distance results through OSRM.
+
+<Image
+  src="/projects/cafemaps/cafemaps-list.webp"
+  alt="Cafe Maps discovery and search interface with cafe cards and filters"
+  width={3344}
+  height={1882}
+  caption="The discovery experience helps users browse cafes by search, filters, vibe tags, opening status, ratings, and price range."
+  size="lg"
+  contained
+/>
+
 - 🌐 **Bilingual experience:** Vietnamese and English routes, UI labels, metadata, cafe content, and blog content.
 - 🧭 **Cafe detail pages:** image gallery, menu image, opening hours, pricing, amenities, parking notes, Google Maps links, share/save actions, and Schema.org JSON-LD.
+
+<Image
+  src="/projects/cafemaps/cafemaps-detail.webp"
+  alt="Cafe Maps cafe detail page shown on desktop and mobile"
+  width={3344}
+  height={1882}
+  caption="Cafe detail pages give users the context they need before visiting: photos, opening hours, address, vibe tags, amenities, price range, save action, and directions."
+  size="lg"
+  contained
+/>
+
 - 🧠 **Vibe-based recommendations:** quiz and guided filters that turn broad intent into practical cafe suggestions.
 - ✍️ **Editorial blog:** localized blog posts with hero images, categories, tags, checklists, related posts, and SEO metadata.
 - 🙋 **Community contribution:** users can submit Google Maps links, notes, and photos for admin review.
 - 🔐 **Accounts and saved cafes:** authentication, profile page, saved cafe lists, and collections.
-
-<Image
-  src="/en/projects/cafemaps/home-polaroid-1.jpg"
-  alt="Cafe Maps visual asset"
-  width={900}
-  height={600}
-  caption="Real cafe imagery makes the discovery experience more tactile, trustworthy, and context-rich."
-  size="lg"
-  contained
-/>
 
 ### Tech Stack
 
@@ -81,6 +93,16 @@ Cafe and blog records store Vietnamese and English fields separately. The backen
 #### CMS Workflow
 
 The CMS is designed for real content operations. Admins can create and edit cafes in tabbed forms, upload and import images, reorder galleries, select cover/menu images, toggle publish status, mark featured cafes, and approve submissions into draft cafe records. The blog editor supports bilingual content, markdown tools, preview mode, tags, checklists, scheduled publishing, and featured posts.
+
+<Image
+  src="/projects/cafemaps/cafemaps-cms.webp"
+  alt="Cafe Maps CMS admin dashboard, cafe management, edit form, and blog editor"
+  width={3344}
+  height={1882}
+  caption="The internal CMS supports cafe CRUD, blog management, publishing workflow, submissions, dashboard metrics, and bilingual content operations."
+  size="lg"
+  contained
+/>
 
 #### Media Processing
 

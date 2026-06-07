@@ -55,6 +55,20 @@
     "noPosts": "posts so far. Stay tuned for more!",
     "title": "Blog | Tan Luc"
   },
+  "Milestones": {
+    "title": "Milestones",
+    "metaTitle": "Milestones | Tan Luc",
+    "intro": "Four short stories about personal and professional moments that shaped how I learn, build, and grow.",
+    "description": "All shows every main story. Choosing a topic filters the list by experience: running, trekking, projects, and English.",
+    "filtersLabel": "Milestone filters",
+    "all": "All",
+    "back": "All milestones",
+    "stats": "Key stats",
+    "routeImageAlt": "Supporting milestone image",
+    "ctaTitle": "More than code",
+    "ctaText": "I believe the way we train, explore, and reflect also shapes the way we build.",
+    "ctaAction": "Read my blog"
+  },
   "Greeting": {
     "Good morning": "Good morning,",
     "Good afternoon": "Good afternoon,",
